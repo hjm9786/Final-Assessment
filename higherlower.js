@@ -28,13 +28,29 @@ function do_guess() {
 
     let message = document.getElementById("message");
 
-    if(guess == num) {
+    if(guess == num) 
+    {
         message.innerHTML = "You got it!";
     }
-    else if (guess > num) {
+    else if (guess > num && guess <= range)
+    {
         message.innerHTML = "No, try a lower number.";
     }
-    else {
+    else if (guess < num && guess >= 1) 
+    {
         message.innerHTML = "No, try a higher number.";
+    }
+
+    else if (guess < 1)
+    {
+        message.innerHTML = "This is not a valid number. Please guess a number inside your play range."
+    }
+    else if (guess > range)
+    {
+        message.innerHTML = "This number is larger than the play range you defined. Please guess another number."
+    }
+    else
+    {
+        message.innerHTML = "Please guess a number."
     }
 }
